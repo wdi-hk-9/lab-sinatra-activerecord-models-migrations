@@ -5,7 +5,7 @@ Bundler.require
 # Controllers
 require './app'
 require './controllers/artists_controller'
-require './controllers/manager_controller'
-require './controllers/song_controller'
+require './controllers/managers_controller'
+require './controllers/songs_controller'
 
 run TunrLab

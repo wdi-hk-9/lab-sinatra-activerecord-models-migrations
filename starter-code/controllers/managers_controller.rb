@@ -1,50 +1,58 @@
-require 'sinatra'
-################################
-# 7 RESTful routes for Managers #
-################################
+class TunrLab < Sinatra::Base
 
-# COLLECTION
-# index
-get '/managers' do
-  @managers = Manager.all
-  erb(:"managers/index")
-end
+  # RESTful Manager Controller Actions
+  # index
+  get '/managers' do
+    @artists = Manager.all
+    erb(:"artists/index")
+  end
 
-# new
-get '/managers/new' do
-  erb(:"managers/new")
-end
+  # new
+  get '/artists/new' do
+    @manager = Manager.new
+    erb(:"artists/new")
+  end
 
-# create
-post '/managers' do
-  new_manager = Manager.create(params[:manager])
-  redirect("/managers/#{new_manager.id}")
-end
+  # create
+  post '/artists' do
+    @manager = Manager.new(params[:manager])
+    if @manager.save
+      redirect("/artists/#{@manager.id}")
+    else
+      erb(:"artists/new")
+    end
+  end
 
-# MEMBER
-# show
-get '/managers/:id' do
-  @manager = Manager.find(params[:id])
-  # @managers  = Manager.where(manager_id: @manager.id)
-  erb(:"managers/show")
-end
+  # show
+  get '/artists/:id' do
+    @manager = Manager.find(params[:id])
+    erb(:"artists/show")
+  end
 
-# edit
-get '/managers/:id/edit' do
-  @manager = Manager.find(params[:id])
-  erb(:"managers/edit")
-end
+  # edit
+  get '/artists/:id/edit' do
+    @manager = Manager.find(params[:id])
+    erb(:"artists/edit")
+  end
 
-# update
-post '/managers/:id' do
-  manager = Manager.find(params[:id])
-  manager.update(params[:manager])
-  redirect("/managers/#{manager.id}")
-end
+  # update
+  put '/artists/:id' do
+    @manager = Manager.find(params[:id])
+    if @manager.update_attributes(params[:manager])
+      redirect("/artists/#{manager.id}")
+    else
+      erb(:"artists/edit")
+    end
+  end
 
-# destroy
-post '/managers/:id/delete' do
-  manager = Manager.find(params[:id])
-  manager.destroy
-  redirect('/managers')
+  # delete
+  delete '/artists/:id/delete' do
+    @manager = Manager.find(params[:id])
+    if @manager.destroy
+      redirect('/artists')
+    else
+      redirect("/artists/#{@manager.id}")
+    end
+  end
+
 end
