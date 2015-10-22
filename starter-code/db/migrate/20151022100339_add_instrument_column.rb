@@ -1,4 +1,4 @@
-class AddInstrumentToArtists < ActiveRecord::Migration
+class AddInstrumentColumn < ActiveRecord::Migration
   def change
     add_column :artists, :instrument, :string
   end
