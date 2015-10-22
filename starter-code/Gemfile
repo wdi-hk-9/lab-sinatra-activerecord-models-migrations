@@ -5,3 +5,4 @@ gem "rake"
 gem "thin"
 gem "activerecord"
 gem "pg"
+gem "tux" #allows us to have an interactive shell to play with object creation
