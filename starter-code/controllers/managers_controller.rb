@@ -54,5 +54,4 @@ class TunrLab < Sinatra::Base
       redirect("/artists/#{@manager.id}")
     end
   end
-
 end

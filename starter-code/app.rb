@@ -31,15 +31,4 @@ class TunrLab < Sinatra::Base
   get '/about' do
     erb :about
   end
-
-  # index
-  get '/artists' do
-    erb(:"artists/index")
-  end
-
-  # new
-  get '/artists/new' do
-    @artist = Artist.new
-    erb(:"artists/new")
-  end
 end

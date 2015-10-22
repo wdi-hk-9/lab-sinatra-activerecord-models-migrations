@@ -1,4 +1,4 @@
-class Tunr < Sinatra::Base
+class TunrLab < Sinatra::Base
 
   # RESTful Song Controller Actions
   # index
