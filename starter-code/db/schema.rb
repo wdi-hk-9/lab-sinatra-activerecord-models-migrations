@@ -26,14 +26,14 @@ ActiveRecord::Schema.define(version: 20151022095220) do
     t.string   "home_address"
   end
 
-  create_table "manager", force: :cascade do |t|
+  create_table "managers", force: :cascade do |t|
     t.string  "name"
     t.string  "email"
     t.integer "office_number"
     t.integer "cell_phone_number"
   end
 
-  create_table "song", force: :cascade do |t|
+  create_table "songs", force: :cascade do |t|
     t.string  "song_title"
     t.integer "duration"
     t.integer "year_of_release"

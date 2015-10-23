@@ -1,5 +1,5 @@
 class DeleteDownlodsInManager < ActiveRecord::Migration
   def change
-    remove_column :song, :downloads
+    remove_column :songs, :downloads
   end
 end
