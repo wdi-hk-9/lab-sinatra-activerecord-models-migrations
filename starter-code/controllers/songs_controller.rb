@@ -1,4 +1,4 @@
-require 'sinatra'
+class TunrLab < Sinatra::Base
 ################################
 # 7 RESTful routes for songs #
 ################################
@@ -47,4 +47,5 @@ post '/songs/:id/delete' do
   song = Song.find(params[:id])
   song.destroy
   redirect('/songs')
+end
 end

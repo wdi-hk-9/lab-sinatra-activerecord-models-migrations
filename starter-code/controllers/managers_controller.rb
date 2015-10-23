@@ -1,4 +1,4 @@
-require 'sinatra'
+class TunrLab < Sinatra::Base
 ################################
 # 7 RESTful routes for Managers #
 ################################
@@ -47,4 +47,5 @@ post '/managers/:id/delete' do
   manager = Manager.find(params[:id])
   manager.destroy
   redirect('/managers')
+end
 end
